@@ -1,5 +1,6 @@
 import { NgSelectOption } from "@angular/forms";
 import {Injectable }    from '@angular/core';
+import { temporaryDeclaration } from '@angular/compiler/src/compiler_util/expression_converter';
 
 @Injectable()
 export class HeroeService
@@ -65,8 +66,30 @@ export class HeroeService
 
         return this.heroes;
     }
-}
 
+    getHeroe(idx:string){
+        return this.heroes[idx];
+    }
+
+
+  buscarHeroes(busqueda: string):Heroe[]
+  {
+    let heroesArr:Heroe[]= [];
+    busqueda =busqueda.toLowerCase();
+
+    for (let hereo of this.heroes) {
+
+        let nombre =hereo.nombre.toLowerCase();
+        if (nombre.indexOf(busqueda)>= 0 )
+        {
+            heroesArr.push(hereo)
+        }
+    }
+
+    return heroesArr;
+
+  }
+}
 
 export interface Heroe{
     nombre :string;
