@@ -28,6 +28,7 @@ import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.
     HeroeComponent,
     BusquedaComponent,
     HeroeTarjetaComponent
+    
   ],
   imports: [
     BrowserModule,
